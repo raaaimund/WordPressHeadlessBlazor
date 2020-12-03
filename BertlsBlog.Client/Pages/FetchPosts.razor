@@ -1,0 +1,72 @@
+@page "/fetchposts"
+@using GraphQL.Client.Http
+@using GraphQL.Client.Serializer.Newtonsoft
+@using GraphQL
+@using Microsoft.Extensions.Logging
+@using BertlsBlog.Client.Responses
+@using BertlsBlog.Client.Models
+@inject HttpClient Http
+@inject ILogger<FetchPosts> Logger
+
+<h1>Blog posts</h1>
+
+<p>This component demonstrates fetching blog posts from the servers graphql endpoint.</p>
+
+@if (_blogPosts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Id</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var blogPost in _blogPosts)
+            {
+                <tr>
+                    <td>@blogPost.Date.ToShortDateString()</td>
+                    <td>@blogPost.Id</td>
+                    <td>@blogPost.Title</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private BlogPost[] _blogPosts;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var graphQLClient = new GraphQLHttpClient("http://localhost/graphql", new NewtonsoftJsonSerializer());
+        var getBlogPostsRequest = new GraphQLRequest
+        {
+            Query = @"
+            query GetPosts {
+                posts {
+                    nodes {
+                        id
+                        title
+                        date
+                    }
+                }
+            }"
+        };
+
+        try
+        {
+            var response = await graphQLClient.SendQueryAsync<GetBlogPostsResponse>(getBlogPostsRequest);
+            _blogPosts = response.Data.Posts.Nodes;
+        }
+        catch (Exception e)
+        {
+            Logger.LogError(e, "Could not fetch blog posts.");
+        }
+    }
+}

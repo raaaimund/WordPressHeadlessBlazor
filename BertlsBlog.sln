@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "BertlsBlog.Server\docker-compose.dcproj", "{FC9F4392-282B-4E69-B88C-A44784C301EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BertlsBlog.Server", "BertlsBlog.Server", "{184FC370-3D5C-481E-B8F4-E596C727B39A}"
+	ProjectSection(SolutionItems) = preProject
+		BertlsBlog.Server\.env = BertlsBlog.Server\.env
+		BertlsBlog.Server\docker-compose.yml = BertlsBlog.Server\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cli", "cli", "{5460164D-C791-4C08-9D05-0FCB625E80C9}"
+	ProjectSection(SolutionItems) = preProject
+		BertlsBlog.Server\cli\Dockerfile = BertlsBlog.Server\cli\Dockerfile
+		BertlsBlog.Server\cli\entrypoint.sh = BertlsBlog.Server\cli\entrypoint.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08470A6F-761C-41F1-BFC5-6A93E19B757B}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BertlsBlog.Client", "BertlsBlog.Client\BertlsBlog.Client.csproj", "{78A85974-1D03-40EF-BDD5-F9FC48C39681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BertlsBlog.Client.Tests", "BertlsBlog.Client.Tests\BertlsBlog.Client.Tests.csproj", "{44DA075F-9F7F-4946-937C-E760DD9F6CA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC9F4392-282B-4E69-B88C-A44784C301EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9F4392-282B-4E69-B88C-A44784C301EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9F4392-282B-4E69-B88C-A44784C301EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9F4392-282B-4E69-B88C-A44784C301EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78A85974-1D03-40EF-BDD5-F9FC48C39681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78A85974-1D03-40EF-BDD5-F9FC48C39681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78A85974-1D03-40EF-BDD5-F9FC48C39681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78A85974-1D03-40EF-BDD5-F9FC48C39681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44DA075F-9F7F-4946-937C-E760DD9F6CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44DA075F-9F7F-4946-937C-E760DD9F6CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44DA075F-9F7F-4946-937C-E760DD9F6CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44DA075F-9F7F-4946-937C-E760DD9F6CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5460164D-C791-4C08-9D05-0FCB625E80C9} = {184FC370-3D5C-481E-B8F4-E596C727B39A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEB22707-F091-4540-846F-1ECCE8A515F8}
+	EndGlobalSection
+EndGlobal
